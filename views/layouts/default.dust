@@ -1,1 +1,13 @@
-default.dust
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Users title</title>
+
+    {+head /}
+
+</head>
+<body>
+    {+body /}
+</body>
+</html>

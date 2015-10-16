@@ -10,5 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "fastclick": "^1.0.6",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0"
   }
 }
