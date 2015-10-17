@@ -9,7 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "koa": "^1.1.0"
+    "koa": "^1.1.0",
+    "koa-router": "^5.2.3"
   },
   "devDependencies": {
     "babel": "^5.8.23",
