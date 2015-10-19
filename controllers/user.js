@@ -1,42 +1,72 @@
 'use strict';
 
+const mongoose = require('mongoose'),
+      _ = require('lodash'),
+      User = require('../models/user');
+
 function renderMainPage(options) {
     return function* () {
         this.body = 'main user page';
     }
 }
 
+function getUserById(options) {
+
+    return function*(id, next) {
+
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+          this.throw(404);
+        }
+
+        this.userById = yield User.findById(id);
+
+        if (!this.userById) {
+          this.throw(404);
+        }
+
+        yield* next;
+    };
+}
+
 function getUsers(options) {
     return function* () {
-        this.body = 'users list';
+        let users = yield User.find({}).lean();
+        this.body = users;
     }
 }
 
 function createUser(options) {
     return function* () {
-        this.body = 'create new user';
+        let user = yield User.create(this.request.body);
+        this.body = _.pick(user.toObject(), [ 'displayName', 'email', 'created' ]);
     }
 }
 
 function getUser(options) {
     return function* () {
-        this.body = 'get user by id';
+        this.body = _.pick(this.userById.toObject(), [ 'displayName', 'email', 'created' ]);
     }
 }
 
 function updateUser(options) {
     return function* () {
-        this.body = 'update user';
+        let user;
+
+        yield this.userById.update({ $set: { displayName: this.request.body.displayName }});
+        user = yield User.findById(this.userById._id);
+        this.body = _.pick(user.toObject(), [ 'displayName', 'email', 'created' ]);
     }
 }
 
 function deleteUser(options) {
     return function* () {
-        this.body = 'delete user';
+        yield this.userById.remove({});
+        this.body = 'ok';
     }
 }
 
 exports.renderMainPage = renderMainPage;
+exports.getUserById = getUserById;
 exports.getUsers = getUsers;
 exports.createUser = createUser;
 exports.getUser = getUser;

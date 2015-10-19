@@ -1,0 +1,16 @@
+{
+    "middlewares": 
+    [
+        {
+            "name": "error-handler",
+            "active": true,
+            "priority": "50"
+        },        
+        {
+            "name": "body-parser",
+            "active": true,
+            "priority": "70"
+        }
+    ]
+
+}
