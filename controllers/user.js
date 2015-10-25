@@ -1,5 +1,7 @@
 'use strict';
 
+const render = require('./render');
+
 const mongoose = require('mongoose'),
       _ = require('lodash'),
       User = require('../models/user');
@@ -30,8 +32,11 @@ function getUserById(options) {
 
 function getUsers(options) {
     return function* () {
+
         let users = yield User.find({}).lean();
-        this.body = users;
+
+        yield render.index(users, 'user.dust');
+        
     }
 }
 

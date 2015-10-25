@@ -2,6 +2,16 @@
     "middlewares": 
     [
         {
+            "name": "koa-cors",
+            "active": true,
+            "priority": "10"
+        },
+        {
+            "name": "bot-detection",
+            "active": true,
+            "priority": "20"
+        },
+        {
             "name": "error-handler",
             "active": true,
             "priority": "50"
