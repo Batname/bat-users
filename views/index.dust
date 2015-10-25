@@ -1,10 +1,14 @@
-{>"layouts/default" /}
+{>"{.path}/layouts/default" /}
 
 {<head}
 <meta name="keywords" content="">
 {/head}
 
 {<body}
-    <div id="react"></div>
-    <script src="/assets/js/user.js"></script>
+    {#isBot}
+      <p>Hello google</p>
+    {:isBot}
+      <div id="react"></div>
+      <script src="/assets/js/user.js"></script>
+    {/isBot}
 {/body}

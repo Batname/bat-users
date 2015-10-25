@@ -20,6 +20,11 @@
             "name": "body-parser",
             "active": true,
             "priority": "70"
+        },
+        {
+            "name": "templates",
+            "active": true,
+            "priority": "80"
         }
     ]
 
