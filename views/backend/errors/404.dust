@@ -1,0 +1,14 @@
+{>"{.path}/layouts/default" /}
+
+{<head}
+<meta name="keywords" content="">
+{/head}
+
+{<body}
+    {?isBot}
+            <div>
+                <p>404</p>
+            </div>
+            <p>{data.error}</p>
+    {/isBot}
+{/body}

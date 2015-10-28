@@ -1,4 +1,5 @@
 'use strict';
+const render = require('../controllers/render');
 
 module.exports = function* (next) {
     try {
@@ -7,8 +8,7 @@ module.exports = function* (next) {
 
         if (err.status) {
             this.status = err.status;
-            this.body = { error: err.message };
-
+            yield render.index({ error: err.message }, 'errors/404.dust');
         } 
         else if (err.name == 'ValidationError') {
 
