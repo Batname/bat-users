@@ -35,7 +35,7 @@ function getUsers(options) {
 
         let users = yield User.find({}).lean();
 
-        yield render.index(users, 'user.dust');
+        yield render.index(users, 'list.dust');
         
     }
 }

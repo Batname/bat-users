@@ -6,9 +6,6 @@
 
 {<body}
     {#isBot}
-      <p>Hello google</p>
-    {:isBot}
-      <div id="react"></div>
-      <script src="/assets/js/user.js"></script>
+      <p>Hello bot</p>
     {/isBot}
 {/body}

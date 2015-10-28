@@ -10,7 +10,7 @@ module.exports = {
             if ( this.state.isBot ) {
                 //this.body = 'hello bot';
 
-                yield this.render('index', {
+                yield this.render('backend/' + template, {
                   path: templatesPath,
                   isBot: this.state.isBot,
                   user: 'John'

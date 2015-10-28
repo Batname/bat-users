@@ -1,0 +1,10 @@
+{>"layouts/default" /}
+
+{<head}
+<meta name="keywords" content="">
+{/head}
+
+{<body}
+  <div id="react"></div>
+  <script src="/assets/js/user.js"></script>
+{/body}
