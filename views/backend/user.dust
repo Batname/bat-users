@@ -7,12 +7,12 @@
 {<body}
     {?isBot}
             <div>
-                <p>Users:</p>
+                <p>User:</p>
             </div>
             <ul>
-                {#data}
-                    <li>{.displayName}</li>
-                {/data}
+                <li>Name: {data.displayName}</li>
+                <li>Email: {data.email}</li>
+                <li>Data: {data.created}</li>
             </ul>
     {/isBot}
 {/body}

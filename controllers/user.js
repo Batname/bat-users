@@ -49,7 +49,10 @@ function createUser(options) {
 
 function getUser(options) {
     return function* () {
-        this.body = _.pick(this.userById.toObject(), [ 'displayName', 'email', 'created' ]);
+
+        let user = _.pick(this.userById.toObject(), [ 'displayName', 'email', 'created' ]);
+
+        yield render.index(user, 'user.dust');
     }
 }
 

@@ -8,12 +8,10 @@ module.exports = {
     index(data, template) {
         return function* (){
             if ( this.state.isBot ) {
-                //this.body = 'hello bot';
-
                 yield this.render('backend/' + template, {
                   path: templatesPath,
                   isBot: this.state.isBot,
-                  user: 'John'
+                  data: data
                 });
             } else {
                 this.body = data;
